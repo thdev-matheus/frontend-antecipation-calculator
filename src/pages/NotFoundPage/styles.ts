@@ -8,11 +8,13 @@ export const Container = styled.section`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1.5rem;
 
   overflow-x: hidden;
 
   text-align: center;
+
+  background-color: ${(props) => props.theme.primary};
 
   & > img {
     width: 65vw;
@@ -82,7 +84,7 @@ export const Container = styled.section`
     }
 
     & > h2 {
-      width: 90vw;
+      width: 70vw;
 
       font-size: 20pt;
 
@@ -90,7 +92,7 @@ export const Container = styled.section`
     }
 
     & > p {
-      width: 90vw;
+      width: 70vw;
 
       font-size: 18pt;
     }

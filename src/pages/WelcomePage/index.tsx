@@ -1,6 +1,6 @@
-import { Container, Header, LoginButton } from "./styles";
+import { Container, NavButton } from "./styles";
 import { useNavigate } from "react-router-dom";
-import { SwitchButton } from "../../components/SwitchButton";
+import { Header } from "../../components/Header";
 
 export const Welcome = () => {
   const navigate = useNavigate();
@@ -8,9 +8,7 @@ export const Welcome = () => {
   const handleNavigate = (path: string): void => navigate(path);
   return (
     <Container>
-      <Header>
-        <SwitchButton size="30" />
-      </Header>
+      <Header />
 
       <img src="https://i.ibb.co/QvpzMtW/Hello-rafiki.png" alt="wellcome" />
       <h2>Olá!</h2>
@@ -20,7 +18,7 @@ export const Welcome = () => {
         valores receberão caso optem por antecipar o recebimento.
       </p>
 
-      <LoginButton
+      <NavButton
         text="Calcular"
         width="17.5rem"
         height="3.125rem"

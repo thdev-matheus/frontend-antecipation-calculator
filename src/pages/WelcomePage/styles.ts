@@ -17,6 +17,8 @@ export const Container = styled.section`
 
   & > img {
     width: 70vw;
+
+    margin-bottom: -2rem;
   }
 
   & > h2 {
@@ -52,47 +54,26 @@ export const Container = styled.section`
 
   @media (min-width: 1000px) {
     & > img {
-      width: 20vw;
+      width: 35vw;
+
+      margin-bottom: -5rem;
     }
 
     & > h2 {
-      width: 40vw;
+      width: 70vw;
 
       font-size: 25pt;
     }
 
     & > p {
-      width: 40vw;
+      width: 70vw;
 
       font-size: 14pt;
     }
   }
 `;
 
-export const Header = styled.div`
-  width: 90vw;
-  height: 3rem;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  border-radius: 0 0 4rem 4rem;
-
-  background-color: ${(props) => props.theme.darkBlue};
-  color: ${(props) => props.theme.white};
-
-  @media (min-width: 767px) {
-    height: 3.5rem;
-  }
-
-  @media (min-width: 1000px) {
-    width: 50vw;
-    height: 3rem;
-  }
-`;
-
-export const LoginButton = styled(Button)`
+export const NavButton = styled(Button)`
   width: 90vw;
 
   border-radius: 4rem 4rem 0 0;
@@ -121,9 +102,9 @@ export const LoginButton = styled(Button)`
   }
 
   @media (min-width: 1000px) {
-    width: 50vw;
-    height: 3.5rem;
+    width: 70vw;
+    height: 2.5rem;
 
-    font-size: 20pt;
+    font-size: 18pt;
   }
 `;

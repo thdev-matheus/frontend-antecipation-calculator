@@ -1,5 +1,6 @@
 import { Container } from "./styles";
 import { useNavigate } from "react-router-dom";
+import { Header } from "../../components/Header";
 
 export const NotFound = () => {
   const navigate = useNavigate();
@@ -8,6 +9,8 @@ export const NotFound = () => {
 
   return (
     <Container>
+      <Header />
+
       <img
         src="https://i.ibb.co/GQfvh20/Feeling-sorry-rafiki.png"
         alt="error"

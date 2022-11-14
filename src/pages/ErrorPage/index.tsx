@@ -1,5 +1,6 @@
 import { useRequestAPI } from "../../contexts/RequestAPI";
 import { Container } from "./styles";
+import { Header } from "../../components/Header";
 
 export const Error = () => {
   const { calculatedData } = useRequestAPI();
@@ -19,6 +20,8 @@ export const Error = () => {
   };
   return (
     <Container>
+      <Header />
+
       <img
         src={
           statusCode === 408

@@ -10,6 +10,8 @@ export const Container = styled.section`
   align-items: center;
   gap: 2rem;
 
+  background-color: ${(props) => props.theme.primary};
+
   & > img {
     width: 80vw;
   }
@@ -19,6 +21,8 @@ export const Container = styled.section`
     font-size: 20pt;
 
     text-align: center;
+
+    color: ${(props) => props.theme.secondary};
   }
 
   & > span {
@@ -26,6 +30,8 @@ export const Container = styled.section`
     font-size: 14pt;
 
     text-align: center;
+
+    color: ${(props) => props.theme.secondary};
 
     & > a {
       text-decoration: none;
