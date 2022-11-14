@@ -1,7 +1,10 @@
 import { ReactNode } from "react";
 import { AxiosInstance } from "axios";
 
-export interface IRequestAPIContext {}
+export interface IRequestAPIContext {
+  calculatedData: ICalculatedData;
+  handleRequest: ({ api, data }: IHandleRequestParams) => Promise<void>;
+}
 
 export interface IRequestAPIProvider {
   children: ReactNode;

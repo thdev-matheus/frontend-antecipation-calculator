@@ -6,17 +6,18 @@ export const Container = styled.section`
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 0.5rem;
 
-  overflow: hidden;
+  overflow-x: hidden;
 
   text-align: center;
 
   & > img {
     width: 65vw;
   }
+
   & > h2 {
     width: 90vw;
 
@@ -26,6 +27,7 @@ export const Container = styled.section`
 
     color: ${(props) => props.theme.secondary};
   }
+
   & > p {
     width: 90vw;
 
@@ -41,15 +43,18 @@ export const Container = styled.section`
 
     color: ${(props) => props.theme.darkBlue};
   }
+
   @media (min-width: 767px) {
     & > img {
       width: 50vw;
     }
+
     & > h2 {
       font-size: 40pt;
 
       color: ${(props) => props.theme.secondary};
     }
+
     & > p {
       font-size: 30pt;
     }
@@ -70,6 +75,7 @@ export const Container = styled.section`
       }
     }
   }
+
   @media (min-width: 1000px) {
     & > img {
       width: 26vw;

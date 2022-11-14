@@ -18,9 +18,12 @@ export const useRequestAPI = () => {
 };
 
 export const RequestAPIProvider = ({ children }: IRequestAPIProvider) => {
-  const [calculatedData, setCalculatedData] = useState<ICalculatedData>(
-    {} as ICalculatedData
-  );
+  const [calculatedData, setCalculatedData] = useState<ICalculatedData>({
+    "1": 0,
+    "15": 0,
+    "30": 0,
+    "90": 0,
+  });
 
   const handleRequest = async ({
     api,
@@ -32,7 +35,7 @@ export const RequestAPIProvider = ({ children }: IRequestAPIProvider) => {
   };
 
   return (
-    <RequestAPIContext.Provider value={{}}>
+    <RequestAPIContext.Provider value={{ calculatedData, handleRequest }}>
       {children}
     </RequestAPIContext.Provider>
   );
