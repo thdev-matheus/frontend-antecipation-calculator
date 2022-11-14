@@ -14,8 +14,8 @@ export const Error = () => {
       : null;
 
   const texts = {
-    "408": "Parece que tá demorando pra responder aqui, tente novamente depois",
-    "500": "Vixe, deu problema no servidor. ",
+    408: "Parece que tá demorando pra responder aqui, tente novamente depois",
+    500: "Vixe, deu problema no servidor. ",
     null: "Oxi teve um problema aqui. Mas a gente já tá resolvendo.",
   };
   return (

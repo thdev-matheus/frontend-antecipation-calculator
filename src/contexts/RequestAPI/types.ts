@@ -23,12 +23,10 @@ export interface IRequestData {
 }
 
 export interface ICalculatedData {
-  "1"?: number;
-  "15"?: number;
-  "30"?: number;
-  "90"?: number;
-  "180"?: number;
-  "360"?: number;
-  "720"?: number;
+  1?: number;
+  15?: number;
+  30?: number;
+  90?: number;
+  180?: number;
   message?: string;
 }

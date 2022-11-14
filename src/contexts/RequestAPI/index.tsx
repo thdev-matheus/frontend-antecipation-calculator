@@ -19,10 +19,10 @@ export const useRequestAPI = () => {
 
 export const RequestAPIProvider = ({ children }: IRequestAPIProvider) => {
   const [calculatedData, setCalculatedData] = useState<ICalculatedData>({
-    "1": 0,
-    "15": 0,
-    "30": 0,
-    "90": 0,
+    1: 1,
+    15: 1,
+    30: 1,
+    90: 1,
   });
 
   const handleRequest = async ({
