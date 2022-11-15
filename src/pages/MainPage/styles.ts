@@ -7,9 +7,10 @@ export const Container = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  justify-content: flex-start;
+  gap: 0.5rem;
 
-  overflow: auto;
+  overflow: hidden auto;
 
   background-color: ${(props) => props.theme.primary};
 
@@ -18,10 +19,12 @@ export const Container = styled.section`
 
     border-bottom: 2px dashed ${(props) => props.theme.darkBlue};
 
+    margin-top: 1rem;
+
     color: ${(props) => props.theme.secondary};
   }
 
-  & > div {
+  & > section {
     width: 100vw;
     height: 100vh;
 
@@ -29,11 +32,15 @@ export const Container = styled.section`
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-
-    margin: 0.5rem;
   }
 
   @media (min-width: 1000px) {
+    & > section {
+      flex-direction: row;
+      justify-content: center;
+
+      align-items: flex-start;
+    }
   }
 `;
 
@@ -45,12 +52,24 @@ export const Footer = styled.footer`
   flex-direction: column;
   align-items: center;
 
+  margin: 3rem 0;
+
   & > h3 {
     font-size: 25pt;
 
     border-bottom: 2px dashed ${(props) => props.theme.darkBlue};
 
+    margin-bottom: 2rem;
+
     color: ${(props) => props.theme.secondary};
+  }
+
+  @media (min-width: 1000px) {
+    margin-top: 2rem;
+
+    & > h3 {
+      margin-bottom: 2rem;
+    }
   }
 `;
 
@@ -60,7 +79,7 @@ export const BoxErrorButtons = styled.div`
   display: flex;
   justify-content: space-around;
 
-  margin-bottom: 1rem;
+  padding-bottom: 1rem;
 
   & > h3 {
     margin-top: 2rem;
@@ -88,6 +107,7 @@ export const BoxErrorButtons = styled.div`
   }
 
   @media (min-width: 767px) {
+    padding-bottom: 3rem;
     & > button {
       padding: 1rem;
 

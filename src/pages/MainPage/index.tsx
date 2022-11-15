@@ -9,18 +9,18 @@ export const Main = () => {
     <Container>
       <Header />
       <h1>Calculadora</h1>
-      <div>
+      <section>
         <Form />
         <Result />
-      </div>
-      {/* <Footer>
+      </section>
+      <Footer>
         <h3>Botões de erros</h3>
         <BoxErrorButtons>
           <Button text="Timeout" />
           <Button text="I. S. Error" />
           <Button text="Not fount" />
         </BoxErrorButtons>
-      </Footer> */}
+      </Footer>
     </Container>
   );
 };

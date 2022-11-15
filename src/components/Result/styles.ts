@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Container = styled.section`
   width: 100vw;
-  height: 5rem;
 
   display: flex;
   flex-direction: column;
@@ -10,6 +9,10 @@ export const Container = styled.section`
   gap: 1rem;
 
   margin-bottom: 2rem;
+
+  @media (min-width: 1000px) {
+    width: 45%;
+  }
 `;
 
 export const BoxTitle = styled.div`

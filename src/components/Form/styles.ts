@@ -39,6 +39,10 @@ export const Container = styled.form`
       font-size: 20pt;
     }
   }
+
+  @media (min-width: 1000px) {
+    width: 45%;
+  }
 `;
 
 export const BoxChecks = styled.fieldset`
@@ -61,7 +65,7 @@ export const BoxChecks = styled.fieldset`
     color: ${(props) => props.theme.secondary};
   }
 
-  @media screen {
+  @media (min-width: 767px) {
     & > legend {
       font-size: 18pt;
     }
