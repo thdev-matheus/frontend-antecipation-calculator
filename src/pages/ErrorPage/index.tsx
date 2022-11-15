@@ -4,19 +4,17 @@ import { Header } from "../../components/Header";
 
 export const Error = () => {
   const { calculatedData } = useRequestAPI();
-  // calculatedData.message = "Internal Server Error";
-  // calculatedData.message = "Timeout";
   const statusCode =
-    calculatedData.message === "Timeout"
+    calculatedData.message === "Request failed with status code 408"
       ? 408
-      : calculatedData.message === "Internal Server Error"
+      : calculatedData.message === "Request failed with status code 500"
       ? 500
       : null;
 
   const texts = {
-    408: "Parece que tá demorando pra responder aqui, tente novamente depois",
+    408: "Parece que tá demorando pra responder aqui, tente de novo depois",
     500: "Vixe, deu problema no servidor. ",
-    null: "Oxi teve um problema aqui. Mas a gente já tá resolvendo.",
+    null: "Oxe! Teve um problema aqui. Mas a gente já tá resolvendo.",
   };
   return (
     <Container>

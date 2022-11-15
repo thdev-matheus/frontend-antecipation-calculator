@@ -50,7 +50,7 @@ export const Form = () => {
   const handleSubmitForm = (data: FieldValues) => {
     const days = convertChecksInDays(checks);
     data = prepareDataForRequest(data, days);
-    handleRequest({ api, data });
+    handleRequest({ axiosAPI: api, data });
   };
 
   return (

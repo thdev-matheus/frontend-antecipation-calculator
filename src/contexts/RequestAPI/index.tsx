@@ -1,5 +1,6 @@
 import { AxiosResponse } from "axios";
 import { createContext, useContext, useState } from "react";
+import { apiInternalError } from "../../api";
 import {
   ICalculatedData,
   IHandleRequestParams,
@@ -26,16 +27,23 @@ export const RequestAPIProvider = ({ children }: IRequestAPIProvider) => {
   });
 
   const handleRequest = async ({
-    api,
+    axiosAPI,
     data,
   }: IHandleRequestParams): Promise<void> => {
-    const response: AxiosResponse<ICalculatedData> = await api.post("/", data);
-
-    setCalculatedData(response.data);
+    await axiosAPI
+      .post("", data)
+      .then((res) => {
+        setCalculatedData(res.data);
+      })
+      .catch((error) => {
+        setCalculatedData({ message: error.message });
+      });
   };
 
   return (
-    <RequestAPIContext.Provider value={{ calculatedData, handleRequest }}>
+    <RequestAPIContext.Provider
+      value={{ calculatedData, handleRequest, setCalculatedData }}
+    >
       {children}
     </RequestAPIContext.Provider>
   );
