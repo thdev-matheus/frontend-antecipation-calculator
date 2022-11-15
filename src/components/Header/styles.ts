@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const SHeader = styled.div`
   width: 90vw;
-  height: 3rem;
+  min-height: 3rem;
 
   display: flex;
   justify-content: center;
@@ -14,11 +14,11 @@ export const SHeader = styled.div`
   color: ${(props) => props.theme.white};
 
   @media (min-width: 767px) {
-    height: 3.5rem;
+    min-height: 3.5rem;
   }
 
   @media (min-width: 1000px) {
-    width: 70vw;
-    height: 2.5rem;
+    max-width: 70vw;
+    min-height: 3.5rem;
   }
 `;

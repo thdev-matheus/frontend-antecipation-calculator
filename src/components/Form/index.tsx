@@ -7,12 +7,12 @@ import { BoxChecks, Container } from "./styles";
 import { TbCurrencyReal } from "react-icons/tb";
 import { FaCcMastercard, FaPercent } from "react-icons/fa";
 import { InputCheck } from "../InputCheck";
-import { IFormChecks, IFormData } from "./types";
+import { IFormChecks } from "./types";
 import { useState } from "react";
 import { convertChecksInDays } from "../../utils/days";
 import { prepareDataForRequest } from "../../utils/prepareDataForRequest";
 import { useRequestAPI } from "../../contexts/RequestAPI";
-import { api, apiInternalError, apiTimeout } from "../../api";
+import { api } from "../../api";
 
 export const Form = () => {
   const [checks, setChecks] = useState<IFormChecks>({

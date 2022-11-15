@@ -31,25 +31,39 @@ export const Container = styled.form`
       transition: 0.8s;
     }
   }
+
+  @media (min-width: 767px) {
+    & > button {
+      height: 4rem;
+
+      font-size: 20pt;
+    }
+  }
 `;
 
 export const BoxChecks = styled.fieldset`
   width: 100%;
 
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   gap: 0.5rem;
 
   border: 3px solid ${(props) => props.theme.secondary};
   border-radius: 0.5rem;
 
-  padding: 0.5rem;
+  padding: 1rem;
 
   & > legend {
     padding-left: 0.5rem;
 
-    font-size: 14pt;
+    font-size: 12pt;
 
     color: ${(props) => props.theme.secondary};
+  }
+
+  @media screen {
+    & > legend {
+      font-size: 18pt;
+    }
   }
 `;

@@ -6,13 +6,18 @@ export const Container = styled.div`
 
   text-align: left;
 
-  div {
+  & > div {
     margin-bottom: 0.5rem;
     padding-left: 1rem;
 
     color: ${(props) => props.theme.secondary};
-    span {
+    & > span {
       color: ${(props) => props.theme.error};
+    }
+  }
+  @media (min-width: 767px) {
+    & > div {
+      font-size: 18pt;
     }
   }
 `;
@@ -60,5 +65,11 @@ export const InputContainer = styled.div<IInputContainerProps>`
 
   svg {
     margin-right: 1rem;
+  }
+
+  @media (min-width: 767px) {
+    & > input {
+      font-size: 16pt;
+    }
   }
 `;
