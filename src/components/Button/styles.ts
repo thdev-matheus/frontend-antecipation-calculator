@@ -9,7 +9,7 @@ export const StyledButton = styled.button<IStyledButtonProps>`
   justify-content: center;
   align-items: center;
 
-  padding: 0.5rem;
+  padding: ${(props) => props.padding || "0.5rem"};
 
   color: ${(props) => props.color || "#407BFF"};
   background-color: ${(props) => props.bgColor || "#f9f9f9"};

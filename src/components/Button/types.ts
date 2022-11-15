@@ -6,6 +6,7 @@ export interface IButtonProps {
   bgColor?: string;
   onClick?: () => void;
   type?: string;
+  padding?: string;
 }
 
 export interface IStyledButtonProps {
@@ -14,4 +15,5 @@ export interface IStyledButtonProps {
   bgColor?: string;
   color?: string;
   type?: string;
+  padding?: string;
 }

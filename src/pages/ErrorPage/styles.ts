@@ -13,7 +13,7 @@ export const Container = styled.section`
   background-color: ${(props) => props.theme.primary};
 
   & > img {
-    width: 80vw;
+    width: 70vw;
   }
 
   & > h2 {
@@ -25,16 +25,40 @@ export const Container = styled.section`
     color: ${(props) => props.theme.secondary};
   }
 
-  & > span {
-    width: 80vw;
-    font-size: 14pt;
+  & > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
 
-    text-align: center;
+    & > span {
+      width: 85vw;
+      font-size: 16pt;
 
-    color: ${(props) => props.theme.secondary};
+      text-align: center;
 
-    & > a {
-      text-decoration: none;
+      color: ${(props) => props.theme.secondary};
+
+      & > a {
+        text-decoration: none;
+
+        color: ${(props) => props.theme.error};
+
+        cursor: pointer;
+
+        :hover {
+          transition: 0.6s;
+
+          color: ${(props) => props.theme.darkBlue};
+        }
+      }
+    }
+
+    & > p {
+      width: 85vw;
+      font-size: 18pt;
+
+      text-align: center;
 
       color: ${(props) => props.theme.error};
 
@@ -50,29 +74,29 @@ export const Container = styled.section`
 
   @media (min-width: 767px) {
     & > img {
-      width: 70vw;
-    }
-
-    & > h2 {
-      font-size: 30pt;
-    }
-
-    & > span {
-      font-size: 20pt;
-    }
-  }
-
-  @media (min-width: 1000px) {
-    & > img {
-      width: 30vw;
+      width: 60vw;
     }
 
     & > h2 {
       font-size: 25pt;
     }
 
-    & > span {
-      font-size: 16pt;
+    & > div {
+      gap: 1rem;
+
+      & > span {
+        font-size: 20pt;
+      }
+
+      & > p {
+        font-size: 30pt;
+      }
+    }
+  }
+
+  @media (min-width: 1000px) {
+    & > img {
+      width: 22vw;
     }
   }
 `;

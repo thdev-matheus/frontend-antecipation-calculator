@@ -8,9 +8,5 @@ export const Button = ({
   type,
   ...rest
 }: IButtonProps) => {
-  return (
-    <StyledButton width={width} height={height} {...rest}>
-      {text}
-    </StyledButton>
-  );
+  return <StyledButton {...rest}>{text}</StyledButton>;
 };

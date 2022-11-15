@@ -1,6 +1,4 @@
-import { AxiosResponse } from "axios";
 import { createContext, useContext, useState } from "react";
-import { apiInternalError } from "../../api";
 import {
   ICalculatedData,
   IHandleRequestParams,
