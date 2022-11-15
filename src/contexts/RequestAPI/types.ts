@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { AxiosInstance } from "axios";
+import { FieldValues } from "react-hook-form";
 
 export interface IRequestAPIContext {
   calculatedData: ICalculatedData;
@@ -12,7 +13,7 @@ export interface IRequestAPIProvider {
 
 export interface IHandleRequestParams {
   api: AxiosInstance;
-  data: IRequestData;
+  data: FieldValues;
 }
 
 export interface IRequestData {
