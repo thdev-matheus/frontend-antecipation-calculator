@@ -10,12 +10,12 @@ export const Container = styled.section`
 `;
 
 export const BoxTitle = styled.div`
-  border-bottom: 2px dashed ${(props) => props.theme.lightBlue};
+  border-bottom: 2px dashed ${(props) => props.theme.darkBlue};
 
   & > h3 {
     font-size: 25pt;
 
-    color: ${(props) => props.theme.lightBlue};
+    color: ${(props) => props.theme.darkBlue};
   }
 `;
 
@@ -31,6 +31,6 @@ export const BoxData = styled.section`
     font-size: 18pt;
     font-weight: bold;
 
-    color: ${(props) => props.theme.lightBlue};
+    color: ${(props) => props.theme.darkBlue};
   }
 `;
