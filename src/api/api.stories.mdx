@@ -1,0 +1,25 @@
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+
+<Meta title="Axios/api" />
+
+# Axios
+
+<p>
+  Como visto na introdução, eu optei por usar o axios para comunicação com a api
+  fornecida pela própria escola.
+</p>
+
+<p>
+  Em "src/api/intex.ts" você encontrará a instância com as configurações básicas
+  para a comunicação com a api.
+</p>
+
+```typescript
+// src/api/index.ts
+import axios from "axios";
+
+export const api = axios.create({
+  baseURL: "https://frontend-challenge-7bu3nxh76a-uc.a.run.app",
+  timeout: 5000,
+});
+```
