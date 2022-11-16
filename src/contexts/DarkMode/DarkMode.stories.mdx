@@ -1,0 +1,59 @@
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+
+<Meta title="Contexts/Dark Mode" />
+
+# Dark mode VS Ligth mode
+
+<p>
+  A aplicação utiliza a biblioteca styled-components para estilizar os
+  componentes e com isso também usa-se o ThemeProvider da mesma para fornecer à
+  aplicação a paleta de cores a ser utilizada como no exemplo abaixo então foi
+  criado um contexto global que gerencia se a aplicação está em modo dark ou
+  ligth.
+</p>
+
+```typescript
+// src/contexts/DarkMode/types.ts
+import { Dispatch, ReactNode, SetStateAction } from "react";
+
+// tipagem do contexto
+export interface IDarkModeContextData {
+  isDarkMode: boolean;
+  setIsDarkMode: Dispatch<SetStateAction<boolean>>;
+}
+
+// tipagem do provider do contexto
+export interface IDarkModeProviderData {
+  children: ReactNode;
+}
+
+// ----------------------------------------------------------------------
+// ----------------------------------------------------------------------
+
+// src/contexts/DarkMode/index.tsx
+import { createContext, useState, useContext } from "react";
+import { IDarkModeContextData, IDarkModeProviderData } from "./types";
+
+// criação do contexto (mas sem exportar)
+const DarkModeContext = createContext<IDarkModeContextData>(
+  {} as IDarkModeContextData
+);
+
+// criado e exportado um "hook" que basicamente retorna o objeto do contexto, ficando mais fácil a execução e desestruturação do mesmo
+export const useDarkMode = () => {
+  const context = useContext(DarkModeContext);
+
+  return context;
+};
+
+export const DarkModeProvider = ({ children }: IDarkModeProviderData) => {
+  //   um simples estado usando o useState booleano para indicar se o dark mode está ligado (true) ou desligado (false), este último sendo o padrão.
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  return (
+    <DarkModeContext.Provider value={{ isDarkMode, setIsDarkMode }}>
+      {children}
+    </DarkModeContext.Provider>
+  );
+};
+```

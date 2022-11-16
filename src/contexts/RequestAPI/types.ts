@@ -16,13 +16,6 @@ export interface IHandleRequestParams {
   data: FieldValues;
 }
 
-export interface IRequestData {
-  amount: number;
-  installments: number;
-  mdr: number;
-  days?: number[];
-}
-
 export interface ICalculatedData {
   1?: number;
   15?: number;
