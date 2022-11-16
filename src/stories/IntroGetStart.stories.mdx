@@ -6,27 +6,23 @@ import { Meta } from "@storybook/addon-docs";
 
 ### Uma calculadora de antecipação para que as pessoas consigam saber quais valores receberão caso optem por antecipar o recebimento.
 
-<p>
-  Esta é uma aplicação frontend feita em <strong>React</strong> utilizando a
-  linguagem <strong>Typescript</strong>. Como gerenciador de pacotes eu utilizei
-  o <strong>NPM</strong>.
-</p>
-<p>Alem das tecnologias já citadas acima, foi utilizada também as libs:</p>
+Esta é uma aplicação frontend feita em **React** utilizando a linguagem
+**Typescript**. Como gerenciador de pacotes eu utilizei o **NPM**.
 
-<ul>
-  <li>React Router Dom</li>
-  <li>Styled Components</li>
-  <li>Axios</li>
-  <li>React Hook Form</li>
-  <li>Yup</li>
-  <li>React Icons</li>
-</ul>
+Alem das tecnologias já citadas acima, foi utilizada também as libs:
 
-<p>Menos introdução e mais prática!</p>
-<p>
-  A seguir você encontrará como iniciar o projeto em ambiente de
-  desenvolvimento.
-</p>
+- React Router Dom
+- Styled Components
+- Axios
+- React Hook Form
+- Yup
+- React Icons
+- Story Book
+
+Menos introdução e mais prática!
+
+A seguir você encontrará como iniciar o projeto em ambiente de
+desenvolvimento.
 
 <br />
 
@@ -88,7 +84,50 @@ $ git push origin <nome_da_branch>
 
 <br />
 
-<p>
-  No mais é isso. Se precisar de ajuda, não exite em chamar, estamos aqui para
-  nos desenvolver e aprender. Bom código pra nós e um forte abraço.
-</p>
+## Arquitetura de arquivos
+
+<br />
+
+<img src="https://i.ibb.co/9nFkRHH/Captura-de-tela-de-2022-11-16-03-39-28.png" />
+
+Logo acima tem um exemplo de como a aplicação está arquitetada a nível de
+componente numa separação de arquivos por função. Os arquivos são e serão
+sempre:
+
+- index.tsx - Responsável por guardar o componente jsx e sua lógica (se a lógica ficar demasiado grande pode-se cogitar escrever uma função utilitária na pasta utils e importá-la no componente).
+
+- styles.ts - Como está sendo utilizado o styled-components na aplicação, o arquivo é responsável por guardar as tags HTML estilizadas para um determinado componente jsx.
+
+- types.ts - Já que a aplicação está construída com a linguagem Typescript é imprescindível que se tenha cuidado de utilizar-se desse arquivo para guardar as tipagens do componente em si. Tanto por organização e limpeza, evitando poluir o código no arquivo do componente ou das tags estilizadas quanto por manutenção pois é bem fácil encontrar as tipagens do componente quando estão organizadas em um só lugar.
+
+- <nome_no_componente>.stories.mdx - arquivo responsável escrever e integrar as funcionalidades e detalhes do componente à documentação.
+
+<br />
+
+## Padrão de código
+
+Algumas regras precisam ser respeitadas para se ter um código homogêneo, bem
+organizado, limpo e estruturado. são elas:
+
+- Nome das funções, variáveis, Componentes e páginas em inglês e escritas no padrão camelCase (para funções e variáveis) e PascalCase (para componentes e páginas).
+- Sintaxe de variável para as funções (sepre que possível tipar os retornos das funções) e componentes e exportação diretamente da variável (sem exportação default para evitar importações com nome errado). Por exemplo:
+
+```typescript
+export const NomeDoComponente = ({}: TipagemDasProps) => {
+  return <h1>Hello, Kenzie!</h1>
+}
+
+export const nomeDaFunção = (par: Tipagem || {chave1, chave2}: Tipagem): TipagemRetorno => {
+  // lógica
+}
+```
+
+- Tipagens sempre devem ser interfaces e começar com a letra I e escritas em PascalCase.
+- Aspas duplas sempre
+- Conventional commits
+- Usar o NPM
+
+<br />
+
+No mais é isso. Se precisar de ajuda, não exite em chamar, estamos aqui para
+nos desenvolver e aprender. Bom código pra nós e um forte abraço.

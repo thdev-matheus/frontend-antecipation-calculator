@@ -18,12 +18,7 @@ export const Welcome = () => {
         valores receberão caso optem por antecipar o recebimento.
       </p>
 
-      <NavButton
-        text="Calcular"
-        width="17.5rem"
-        height="3.125rem"
-        onClick={() => handleNavigate("/main")}
-      />
+      <NavButton text="Calcular" onClick={() => handleNavigate("/main")} />
     </Container>
   );
 };
