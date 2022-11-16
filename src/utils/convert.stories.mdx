@@ -1,0 +1,25 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Utils/Convert" />
+
+# Convertendo Reais para centavos e vice-versa
+
+<p>
+  Existe, na aplicação, o caso que a chave "amount" a ser passada no body da
+  requisição para a api precisa ser em centavos, entretanto não podemos pedir ao
+  usuário que digite o valo em centavos, por isso se fez a necessidade deste
+  utilitário que consiste de duas funções de conversão, tanto do valor digitado
+  em reais pelo cliente para os centavos pedidos pela api, quanto da resposta em
+  centavos da api para os reais exibidos na tela para o cliente.
+</p>
+
+```typescript
+// src/utils/convert.ts
+export const convertCentsToReal = (cents: number) => {
+  return cents > 1 ? cents / 100 : 0;
+};
+
+export const convertRealToCents = (real: number) => {
+  return real * 100;
+};
+```
