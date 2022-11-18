@@ -2,7 +2,7 @@ import { FieldValues, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "../../schemas";
 import { Button } from "../Button";
-import Input from "../Input";
+import { Input } from "../Input";
 import { BoxChecks, Container } from "./styles";
 import { TbCurrencyReal } from "react-icons/tb";
 import { FaCcMastercard, FaPercent } from "react-icons/fa";

@@ -1,7 +1,7 @@
 import { IInputProps } from "./types";
 import { Container, InputContainer } from "./styles";
 
-export default function Input({
+export const Input = ({
   label,
   icon: Icon,
   register,
@@ -9,7 +9,7 @@ export default function Input({
   error,
   placeholder,
   ...rest
-}: IInputProps) {
+}: IInputProps) => {
   return (
     <Container>
       <div>
@@ -21,4 +21,4 @@ export default function Input({
       </InputContainer>
     </Container>
   );
-}
+};
