@@ -6,8 +6,10 @@ import { useNavigate } from "react-router-dom";
 export const Error = () => {
   const navigate = useNavigate();
   const { calculatedData } = useRequestAPI();
+
   const statusCode =
-    calculatedData.message === "Request failed with status code 408"
+    calculatedData.message === "Request failed with status code 408" ||
+    calculatedData.message === "timeout of 5000ms exceeded"
       ? 408
       : calculatedData.message === "Request failed with status code 500"
       ? 500

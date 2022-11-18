@@ -10,6 +10,7 @@ export const Container = styled.section`
   align-items: center;
   gap: 2rem;
 
+  overflow: hidden auto;
   background-color: ${(props) => props.theme.primary};
 
   & > img {

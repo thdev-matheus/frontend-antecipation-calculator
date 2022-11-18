@@ -50,6 +50,10 @@ export const Main = () => {
             onClick={() => request("?timeout", "/error")}
           />
           <Button
+            text="Delay"
+            onClick={() => request("?delay=5500", "/error")}
+          />
+          <Button
             text="I. S. Error"
             onClick={() => request("?internalError", "/error")}
           />
