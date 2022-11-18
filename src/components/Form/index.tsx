@@ -1,6 +1,4 @@
-import { FieldValues, useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { schema } from "../../schemas";
+import { FieldValues } from "react-hook-form";
 import { Button } from "../Button";
 import { Input } from "../Input";
 import { BoxChecks, Container } from "./styles";
@@ -12,6 +10,7 @@ import { useState } from "react";
 import { convertChecksInDays } from "../../utils/days";
 import { prepareDataForRequest } from "../../utils/prepareDataForRequest";
 import { useRequestAPI } from "../../contexts/RequestAPI";
+import { useFormUtils } from "../../contexts/FormUtils";
 
 export const Form = () => {
   const [checks, setChecks] = useState<IFormChecks>({
@@ -24,14 +23,7 @@ export const Form = () => {
 
   const { handleRequest } = useRequestAPI();
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    reValidateMode: "onSubmit",
-    resolver: yupResolver(schema),
-  });
+  const { errors, handleSubmit } = useFormUtils();
 
   const markCheckBox = (nameCheck: number): void => {
     const newChecks = {
@@ -59,7 +51,6 @@ export const Form = () => {
         label="Informe o valor da venda *"
         name="amount"
         icon={TbCurrencyReal}
-        register={register}
         placeholder="digite um número"
         type="number"
         error={errors.amount && String(errors.amount.message)}
@@ -69,7 +60,6 @@ export const Form = () => {
         label="Em quantas parcelas *"
         name="installments"
         icon={FaCcMastercard}
-        register={register}
         placeholder="digite um número"
         type="number"
         error={errors.installments && String(errors.installments.message)}
@@ -78,7 +68,6 @@ export const Form = () => {
         label="Informe o percentual de MDR *"
         name="mdr"
         icon={FaPercent}
-        register={register}
         placeholder="digite um número"
         type="number"
         error={errors.mdr && String(errors.mdr.message)}

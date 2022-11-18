@@ -1,15 +1,16 @@
 import { IInputProps } from "./types";
 import { Container, InputContainer } from "./styles";
+import { useFormUtils } from "../../contexts/FormUtils";
 
 export const Input = ({
   label,
   icon: Icon,
-  register,
   name,
   error,
   placeholder,
   ...rest
 }: IInputProps) => {
+  const { register } = useFormUtils();
   return (
     <Container>
       <div>
