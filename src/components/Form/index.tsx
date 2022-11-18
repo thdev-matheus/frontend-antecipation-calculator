@@ -23,7 +23,7 @@ export const Form = () => {
 
   const { handleRequest } = useRequestAPI();
 
-  const { errors, handleSubmit } = useFormUtils();
+  const { errors, handleSubmit, register } = useFormUtils();
 
   const markCheckBox = (nameCheck: number): void => {
     const newChecks = {
@@ -50,6 +50,7 @@ export const Form = () => {
       <Input
         label="Informe o valor da venda *"
         name="amount"
+        register={register}
         icon={TbCurrencyReal}
         placeholder="digite um número"
         type="number"
@@ -59,6 +60,7 @@ export const Form = () => {
       <Input
         label="Em quantas parcelas *"
         name="installments"
+        register={register}
         icon={FaCcMastercard}
         placeholder="digite um número"
         type="number"
@@ -68,6 +70,7 @@ export const Form = () => {
         label="Informe o percentual de MDR *"
         name="mdr"
         icon={FaPercent}
+        register={register}
         placeholder="digite um número"
         type="number"
         error={errors.mdr && String(errors.mdr.message)}

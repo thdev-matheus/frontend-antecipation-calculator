@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components";
-import { IInputContainerProps } from "./types";
+import { IcontainerProps, IInputContainerProps } from "./types";
 
-export const Container = styled.div`
-  width: 100%;
+export const Container = styled.div<IcontainerProps>`
+  width: ${(props) => props.width || "100%"};
 
   text-align: left;
 
@@ -12,7 +12,7 @@ export const Container = styled.div`
 
     color: ${(props) => props.theme.secondary};
     & > span {
-      color: ${(props) => props.theme.error};
+      color: ${(props) => props.theme.error || "red"};
     }
   }
   @media (min-width: 767px) {
@@ -39,9 +39,9 @@ export const InputContainer = styled.div<IInputContainerProps>`
   ${(props) =>
     props.isErrored &&
     css`
-      border-color: ${(props) => props.theme.error};
+      border-color: ${(props) => props.theme.error || "red"};
       svg {
-        color: ${(props) => props.theme.error};
+        color: ${(props) => props.theme.error || "red"};
       }
     `}
 
@@ -49,7 +49,8 @@ export const InputContainer = styled.div<IInputContainerProps>`
     flex: 1;
     align-items: center;
 
-    border: 0;
+    border: none;
+    outline: none;
 
     background: transparent;
     color: ${(props) => props.theme.secondary};

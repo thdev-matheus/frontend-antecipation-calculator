@@ -1,0 +1,143 @@
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { FaAngellist } from "react-icons/fa";
+import { Input } from "./";
+import { useFormUtils } from "../../contexts/FormUtils";
+import { UseFormRegister } from "react-hook-form";
+
+<Meta title="Componentes/Input" component={Input} />
+
+# Input
+
+O componente de input, a nível de personalização é restrinto a apenas um atributo que é opcional, o width.
+Caso não seja configurado, o input assumirá o width de 100% da tag pai qu o envolve.
+
+Essa é uma forma de tornar ele flexível automaticamente.
+
+Vejamos o exemplo do input com o width e do input se o width
+
+<Canvas>
+  <Story
+    name="Input"
+    args={{
+      label: "label",
+      name: "name",
+      width: "20rem",
+    }}
+  >
+    {(args) => <Input register={useFormUtils().register} {...args} />}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story
+    name="Input No Width"
+    args={{
+      label: "label",
+      name: "name",
+    }}
+  >
+    {(args) => <Input {...args} />}
+  </Story>
+</Canvas>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+
+## Atributos:
+
+<ArgsTable of={Input} />
+
+<br />
+
+O input utilizado na aplicação é o que não possui o atributo width pois, em tdas as ocorrências ele está dentro de um componente form que limita o seu tamanho. dessa forma, mudando o tamanho do form, muda o tamanho do input deixando ele responsivo.
+
+<br />
+<br />
+
+## Placeholder
+
+Também é possível ter um Placeholder no input
+
+<Canvas>
+  <Story
+    name="Input Placeholder"
+    args={{
+      label: "Input com Placeholder",
+      name: "name",
+      placeholder: "Digite aqui...",
+      width: "20rem",
+    }}
+  >
+    {(args) => <Input {...args} />}
+  </Story>
+</Canvas>
+
+<br />
+<br />
+
+## Icon Input
+
+O input também pode receber um ícone do tipo "IconType"(do react-icons por exemplo) em seus atributos
+
+<Canvas>
+  <Story
+    name="Input Icon"
+    args={{
+      label: "Input com Ícone",
+      name: "name",
+      placeholder: "Digite aqui",
+      width: "20rem",
+    }}
+  >
+    {(args) => <Input icon={FaAngellist} {...args} />}
+  </Story>
+</Canvas>
+
+<br />
+<br />
+
+## Error Input
+
+Caso queira exibir alguma mensagem de erro no input, basta passar uma string contend a mensagem de erro na propridade "error" do input
+
+<Canvas>
+  <Story
+    name="Input Error"
+    args={{
+      label: "label",
+      name: "name",
+      error: "Algo deu errado",
+      placeholder: "Digite aqui",
+      width: "20rem",
+    }}
+  >
+    {(args) => <Input icon={FaAngellist} {...args} />}
+  </Story>
+</Canvas>
+
+<br />
+<br />
+
+## Input Type
+
+O Input também aceita os tipos relacionados a tag HTML input, embora na aplicação se use apenas o tipo "number"
+
+Também foi retirado o botão de interação de click do input tipo "number".
+
+<Canvas>
+  <Story
+    name="Input Type"
+    args={{
+      label: "label",
+      name: "name",
+      placeholder: "Digite um número",
+      width: "20rem",
+      type: "number",
+    }}
+  >
+    {(args) => <Input icon={FaAngellist} {...args} />}
+  </Story>
+</Canvas>

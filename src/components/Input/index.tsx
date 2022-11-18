@@ -8,17 +8,23 @@ export const Input = ({
   name,
   error,
   placeholder,
+  register,
+  width,
   ...rest
 }: IInputProps) => {
-  const { register } = useFormUtils();
+  const { register: rg } = useFormUtils();
   return (
-    <Container>
+    <Container width={width}>
       <div>
         {label} {!!error && <span> - {error}</span>}
       </div>
       <InputContainer isErrored={!!error}>
         {Icon && <Icon />}
-        <input {...register(name)} placeholder={placeholder} {...rest} />
+        {register ? (
+          <input {...register(name)} placeholder={placeholder} {...rest} />
+        ) : (
+          <input {...rg(name)} placeholder={placeholder} {...rest} />
+        )}
       </InputContainer>
     </Container>
   );
