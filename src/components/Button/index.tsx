@@ -5,8 +5,31 @@ export const Button = ({
   text,
   width,
   height,
-  type,
+  type = "button",
+  borderRadius,
+  bgColor = "#0984e3",
+  color = "#f9f9f9",
+  padding = "0.5rem",
   ...rest
 }: IButtonProps) => {
-  return <StyledButton {...rest}>{text}</StyledButton>;
+  return (
+    <StyledButton
+      width={width}
+      height={height}
+      borderRadius={borderRadius}
+      bgColor={bgColor}
+      color={color}
+      padding={padding}
+      {...rest}
+    >
+      {text}
+    </StyledButton>
+  );
+};
+
+Button.defautProps = {
+  type: "button",
+  bgColor: "#0984e3",
+  color: "#f9f9f9",
+  padding: "0.5rem",
 };

@@ -1,10 +1,9 @@
 import { Dispatch, ReactNode, SetStateAction } from "react";
-import { AxiosInstance } from "axios";
 import { FieldValues } from "react-hook-form";
 
 export interface IRequestAPIContext {
   calculatedData: ICalculatedData;
-  handleRequest: ({ axiosAPI, data }: IHandleRequestParams) => Promise<void>;
+  handleRequest: ({ endpoint, data }: IHandleRequestParams) => Promise<void>;
   setCalculatedData: Dispatch<SetStateAction<ICalculatedData>>;
 }
 
@@ -13,15 +12,8 @@ export interface IRequestAPIProvider {
 }
 
 export interface IHandleRequestParams {
-  axiosAPI: AxiosInstance;
+  endpoint: string;
   data: FieldValues;
-}
-
-export interface IRequestData {
-  amount: number;
-  installments: number;
-  mdr: number;
-  days?: number[];
 }
 
 export interface ICalculatedData {

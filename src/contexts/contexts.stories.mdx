@@ -1,0 +1,57 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Contexts/Organizando os Contextos" />
+
+# Organizando os contextos
+
+<p>
+  Devemos manter a aplicação sempre organizada e o mais limpa possível. Mas
+  convenhamos que o contextAPI não é muito bom nisso, não é?
+</p>
+<p>
+  Pois bem, após criar seu contexto, ao invés de envolver o ponto da aplicação
+  com o seu provider você pode simplesmente colocá-lo no index.tsx dentro da
+  raiz da pasta de contextos. Dessa forma:
+</p>
+
+```typescript
+// src/contexts/index.tsx
+import { DarkModeProvider } from "./DarkMode"; // 1 - importe o provider do contexto que acabou de criar
+import { RequestAPIProvider } from "./RequestAPI";
+import { IContextProps } from "./types";
+
+export const Contexts = ({ children }: IContextProps) => {
+  return (
+    <DarkModeProvider>
+      /* envolva todos os outros contextos com o seu provider (caso o seu
+      contexto precise das informações contidas em outro contexto faça com que o
+      seu provider esteja sempre sendo envolvido pelo provider que precisa.) */
+      <RequestAPIProvider>{children}</RequestAPIProvider>
+    </DarkModeProvider>
+  );
+};
+
+// -------------------------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------------------
+
+// src/index.tsx
+import ReactDOM from "react-dom/client";
+import { App } from "./App";
+import { GlobalStyle } from "./styles/global";
+import { Contexts } from "./contexts";
+
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement
+);
+root.render(
+  <Contexts>
+    {" "}
+    /* Nosso "organizador" de contextos é o que envolve as tags fazendo assim que
+    com que tenhamos o efeito esperado e mantenhamos o código limpo. Muito melhor
+    do que simplesmente poluir o arquivo principal da aplicação com vários e vários
+    providers, não é mesmo? */
+    <GlobalStyle />
+    <App />
+  </Contexts>
+);
+```

@@ -2,7 +2,7 @@ import { FieldValues, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "../../schemas";
 import { Button } from "../Button";
-import Input from "../Input";
+import { Input } from "../Input";
 import { BoxChecks, Container } from "./styles";
 import { TbCurrencyReal } from "react-icons/tb";
 import { FaCcMastercard, FaPercent } from "react-icons/fa";
@@ -12,7 +12,6 @@ import { useState } from "react";
 import { convertChecksInDays } from "../../utils/days";
 import { prepareDataForRequest } from "../../utils/prepareDataForRequest";
 import { useRequestAPI } from "../../contexts/RequestAPI";
-import { api } from "../../api";
 
 export const Form = () => {
   const [checks, setChecks] = useState<IFormChecks>({
@@ -48,9 +47,10 @@ export const Form = () => {
   };
 
   const handleSubmitForm = (data: FieldValues) => {
+    const endpoint = "";
     const days = convertChecksInDays(checks);
     data = prepareDataForRequest(data, days);
-    handleRequest({ axiosAPI: api, data });
+    handleRequest({ endpoint, data });
   };
 
   return (

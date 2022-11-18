@@ -22,6 +22,5 @@
   },
   "include": [
     "src",
-    "src/declarations/index.d.ts"
   ]
 }
