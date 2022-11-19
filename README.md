@@ -1,46 +1,67 @@
 # Antecipation Calculator
 
-# Projeto em construção...
-<!-- ## link 👇
-
-https://th-matheus-kenzie-hub.vercel.app/
-
 <div style="display: inline_block"><br/>
     <img align="center" alt="git" src="https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white"/>
     <img align="center" alt="github" src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"/>
-    <img align="center" alt="javascript" src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E"/>
+    <img align="center" alt="javascript" src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white"/>
     <img align="center" alt="react.js" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/>
     <img align="center" alt="styledcomponents" src="https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white"/>
     <img align="center" alt="react-router" src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white"/>
     <img align="center" alt="vscode" src="https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white"/>
+    <img align="center" alt="vercel" src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white"/>
+    <img align="center" alt="vercel" src="https://img.shields.io/badge/Kali_Linux-557C94?style=for-the-badge&logo=kali-linux&logoColor=white"/>
 </div>
 <br/>
+
+
+## link do deploy
+
+https://frontend-antecipation-calculator.vercel.app/
+
 <br/>
+
+## link da documentação da aplicação
+
+https://thdev-matheus.github.io/frontend-antecipation-calculator/?path=/story/introdu%C3%A7%C3%A3o--page
+
+<br/>
+
+Uma aplicação front-end de uma calculadora de antecipação que calcula o quanto um usuário vai receber por sua venda no crédito parcelada de acordo com os dias que deseja antecipar.
+
+<br />
+
 <div style="display: inline-block">
-    <img width="46%" src="https://i.ibb.co/ncQRL1R/Captura-de-tela-de-2022-07-30-23-33-24.png" alt="imagem">
-    <img width="46%" src="https://i.ibb.co/T4HHt87/Captura-de-tela-de-2022-07-30-23-33-30.png" alt="imagem">
-    <img width="46%" src="https://i.ibb.co/6vNGxcM/Captura-de-tela-de-2022-07-30-23-34-58.png" alt="imagem">
-    <img width="46%" src="https://i.ibb.co/Bz6cfCP/Captura-de-tela-de-2022-07-30-23-35-04.png" alt="imagem">
-    <img width="46%" src="https://i.ibb.co/qJrZDM0/Captura-de-tela-de-2022-07-30-23-37-08.png" alt="imagem">
-    <img width="46%" src="https://i.ibb.co/gV4sDpb/Captura-de-tela-de-2022-07-30-23-37-14.png" alt="imagem">
-    <img width="46%" src="https://i.ibb.co/9tNdrf4/Captura-de-tela-de-2022-07-30-23-37-28.png" alt="imagem">
-    
+    <img width="46%" src="https://i.ibb.co/6bMt69D/image.png" alt="imagem">
+    <img width="46%" src="https://i.ibb.co/48mvtGp/image-1.png" alt="imagem">
+    <img width="46%" src="https://i.ibb.co/D162Nqw/image-2.png" alt="imagem">
+    <img width="46%" src="https://i.ibb.co/Bstph7B/image-3.png" alt="imagem">
+    <img width="46%" src="https://i.ibb.co/Y8WPQMP/image-4.png" alt="imagem">
+    <img width="46%" src="https://i.ibb.co/84P8Vs0/image-5.png" alt="imagem">
+    <img width="46%" src="https://i.ibb.co/y65zDNF/image-6.png" alt="imagem">
+    <img width="46%" src="https://i.ibb.co/Psyx2H2/image-7.png" alt="imagem">
+    <img width="46%" src="https://i.ibb.co/SNwhnJn/image-8.png" alt="imagem">
+    <img width="46%" src="https://i.ibb.co/GpGWd0G/image-9.png" alt="imagem">
+    <img width="46%" src="https://i.ibb.co/bzWpc7q/image-10.png" alt="imagem">
+    <img width="46%" src="https://i.ibb.co/4dV7d8k/image-11.png" alt="imagem">
+    <img width="46%" src="https://i.ibb.co/vkpL4nB/image-12.png" alt="imagem">
+    <img width="46%" src="https://i.ibb.co/ngPVFVn/image-13.png" alt="imagem">
+    <img width="46%" src="https://i.ibb.co/XJjDs6h/image-14.png" alt="imagem">
+    <img width="46%" src="https://i.ibb.co/kDfWBCP/image-15.png" alt="imagem">
+    <img width="46%" src="https://i.ibb.co/429NRSy/image-16.png" alt="imagem">
+    <img width="46%" src="https://i.ibb.co/cvGWXDV/image-17.png" alt="imagem">
+    <img width="46%" src="https://i.ibb.co/9qYSdCH/image-18.png" alt="imagem">    
 </div>
-<br/>
-<br/>
-
-> Crie sua "carteira" de tecnologias. Adicione, edite ou exclua as tecnologias.
 
 <br/>
+<br/>
 
-Aplicação desenvolvida no 3º módulo do curso de desenvolvimento full stack da Kenzie Academy Brasil que é basicamente um perfil onde você poderá cadastrar as tecnologias que você estuda ou domina e selecionar o nível de proficiência em cada uma delas.
-Também é possível editar e excluir os cards já criados.
+Aplicação desenvolvida no 6º e último módulo do curso de desenvolvimento web full stack da Kenzie Academy Brasil
 
-<br/> -->
+<br/>
 
 ## Criador do projeto
 
-Este projeto foi criado pela Kenzie Academy Brasil e estruturado por Matheus Vieira:
+Este projeto foi criado pela Kenzie Academy Brasil e desenvolvido por Matheus Vieira:
 
 <table>
   <tr>
@@ -53,7 +74,7 @@ Este projeto foi criado pela Kenzie Academy Brasil e estruturado por Matheus Vie
     <td align="center">
         <img src="https://avatars.githubusercontent.com/u/109465340?v=4" width="100px;" alt="Foto do Theus no GitHub"/><br>
         <sub>
-          <b>Matheus Vieira</b>
+          <b><a href="https://www.linkedin.com/in/th-matheus/">Matheus Vieira</a></b>
         </sub>
     </td>
     
