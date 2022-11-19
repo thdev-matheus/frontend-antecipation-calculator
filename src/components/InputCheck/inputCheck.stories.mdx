@@ -1,0 +1,28 @@
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { InputCheck } from "./";
+
+<Meta title="Componentes/Input Check" component={InputCheck} />
+
+# Input Check
+
+Este checkbox foi criado especialmente unicamente para o fomulário desta aplicação.
+
+A motivação para compor ele como um componente foi mais de organização e limpeza de código.
+
+Todas os seus atributos são obrigatórios e não flexibilizados. Vejamos:
+
+<Canvas>
+  <Story
+    name="Default Input Check"
+    args={{
+      name: "1",
+      markCheckBox: () => "",
+    }}
+  >
+    {(args) => <InputCheck markCheckBox={() => ""} {...args} />}
+  </Story>
+</Canvas>
+
+## Atributos
+
+<ArgsTable of={InputCheck} />

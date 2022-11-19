@@ -1,3 +1,24 @@
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { Form } from "./";
+
+<Meta title="Componentes/Form" />
+
+# Form
+
+Apesar de estar listado como um componente, o form da aplicação é mais uma junção de outros componentes "menores" e tem por objetivo apenas guardar as funções tratamenteo de dados e servir como uma espécie de controller que organiza e distribui as funções aos elementos da página. Vejamos como fica o layout:
+
+<br />
+
+<img src="https://i.ibb.co/yWZrWtB/Captura-de-tela-de-2022-11-18-20-41-41.png" />
+
+<br />
+<br />
+
+basicamente é um controlador que organiza e separa os dados para serem enviados para a api, vejamos o código para entender melhor:
+
+```typescript
+// src/components/Form/index.tsx
+
 import { FieldValues } from "react-hook-form";
 import { Button } from "../Button";
 import { Input } from "../Input";
@@ -13,6 +34,7 @@ import { useRequestAPI } from "../../contexts/RequestAPI";
 import { useFormUtils } from "../../contexts/FormUtils";
 
 export const Form = () => {
+  // estado que guarda os valores dos input checkbox (se estão marcados ou não)
   const [checks, setChecks] = useState<IFormChecks>({
     1: false,
     15: false,
@@ -21,10 +43,13 @@ export const Form = () => {
     180: false,
   });
 
+  // Aqui nós importamos a função que faá a requisição direto do contexto
   const { handleRequest } = useRequestAPI();
 
+  // importamos os utilitários para formulários direto do contexto
   const { errors, handleSubmit, register } = useFormUtils();
 
+  // Essa função tem o objetivo de atualizar o estaco dos input checkbox, ativando e desativando eles
   const markCheckBox = (nameCheck: number): void => {
     const newChecks = {
       ...checks,
@@ -38,6 +63,7 @@ export const Form = () => {
     setChecks(newChecks);
   };
 
+  // função que irá receber os valores e organizar da forma correta para o envio para a api
   const handleSubmitForm = (data: FieldValues) => {
     const endpoint = "";
     const days = convertChecksInDays(checks);
@@ -88,3 +114,4 @@ export const Form = () => {
     </Container>
   );
 };
+```

@@ -1,0 +1,27 @@
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { Header } from "./";
+
+<Meta title="Componentes/Header" />
+
+# Header
+
+O header da aplicação trás consigo um único elemento em se conteúdo, o SwitchButton que nã aplicação é responável por transicionar entre o dark mode e o light mode. vejamos o layout:
+
+<img src="https://i.ibb.co/Rg7qxpR/Captura-de-tela-de-2022-11-18-20-57-42.png" />
+
+Observando o código podemos perceber que se trata de um container responsivo que contém um botão como conteúdo. Realmente simples, não?
+
+```typescript
+// src/components/Header/index.tsx
+
+import { SwitchButton } from "../SwitchButton";
+import { SHeader } from "./styles";
+
+export const Header = () => {
+  return (
+    <SHeader>
+      <SwitchButton size="30" />
+    </SHeader>
+  );
+};
+```

@@ -1,4 +1,9 @@
+import { FieldValues, UseFormRegister } from "react-hook-form";
 import { IconType } from "react-icons";
+
+export interface IcontainerProps {
+  width?: string;
+}
 
 export interface IInputContainerProps {
   isErrored?: boolean;
@@ -12,4 +17,6 @@ export interface IInputProps {
   placeholder?: string;
   type?: string;
   step?: string;
+  width?: string;
+  register?: UseFormRegister<FieldValues>;
 }
