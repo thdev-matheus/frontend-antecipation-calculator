@@ -1,0 +1,32 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Utilitários/Dias" />
+
+# Days
+
+<p>Como visto na seção da api temos um campo opcional que são os days.</p>
+<p>
+  A aplicação se vale de inputs do tipo checkbox para verificar quais os dias
+  que o usuário deseja exibir na tela e para isso se faz necessário este
+  utilitário que recebe um objeto contendo chave(dias) e valor(booleano)
+  indicando os dias marcados
+</p>
+<p>
+  Essa função retorna um array de strings que correspondem ao tipo correto que a
+  api necessita para processar a informação.
+</p>
+
+```typescript
+// src/utils/days.ts
+import { IFormChecks } from "../components/Form/types";
+
+export const convertChecksInDays = (data: IFormChecks): string[] => {
+  const obj = Object({ ...data });
+  const days = [];
+  for (const key in obj) {
+    obj[key] && days.push(key);
+  }
+
+  return days;
+};
+```

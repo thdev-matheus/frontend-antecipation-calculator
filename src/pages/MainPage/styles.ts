@@ -77,7 +77,9 @@ export const BoxErrorButtons = styled.div`
   width: 90vw;
 
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
+  gap: 2rem;
 
   padding-bottom: 1rem;
 

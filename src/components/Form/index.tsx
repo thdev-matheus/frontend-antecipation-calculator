@@ -1,8 +1,6 @@
-import { FieldValues, useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { schema } from "../../schemas";
+import { FieldValues } from "react-hook-form";
 import { Button } from "../Button";
-import Input from "../Input";
+import { Input } from "../Input";
 import { BoxChecks, Container } from "./styles";
 import { TbCurrencyReal } from "react-icons/tb";
 import { FaCcMastercard, FaPercent } from "react-icons/fa";
@@ -12,7 +10,7 @@ import { useState } from "react";
 import { convertChecksInDays } from "../../utils/days";
 import { prepareDataForRequest } from "../../utils/prepareDataForRequest";
 import { useRequestAPI } from "../../contexts/RequestAPI";
-import { api } from "../../api";
+import { useFormUtils } from "../../contexts/FormUtils";
 
 export const Form = () => {
   const [checks, setChecks] = useState<IFormChecks>({
@@ -25,14 +23,7 @@ export const Form = () => {
 
   const { handleRequest } = useRequestAPI();
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    reValidateMode: "onSubmit",
-    resolver: yupResolver(schema),
-  });
+  const { errors, handleSubmit, register } = useFormUtils();
 
   const markCheckBox = (nameCheck: number): void => {
     const newChecks = {
@@ -48,9 +39,10 @@ export const Form = () => {
   };
 
   const handleSubmitForm = (data: FieldValues) => {
+    const endpoint = "";
     const days = convertChecksInDays(checks);
     data = prepareDataForRequest(data, days);
-    handleRequest({ axiosAPI: api, data });
+    handleRequest({ endpoint, data });
   };
 
   return (
@@ -58,8 +50,8 @@ export const Form = () => {
       <Input
         label="Informe o valor da venda *"
         name="amount"
-        icon={TbCurrencyReal}
         register={register}
+        icon={TbCurrencyReal}
         placeholder="digite um número"
         type="number"
         error={errors.amount && String(errors.amount.message)}
@@ -68,8 +60,8 @@ export const Form = () => {
       <Input
         label="Em quantas parcelas *"
         name="installments"
-        icon={FaCcMastercard}
         register={register}
+        icon={FaCcMastercard}
         placeholder="digite um número"
         type="number"
         error={errors.installments && String(errors.installments.message)}

@@ -5,6 +5,7 @@ import {
   IRequestAPIContext,
   IRequestAPIProvider,
 } from "./types";
+import { api } from "../../api";
 
 const RequestAPIContext = createContext<IRequestAPIContext>(
   {} as IRequestAPIContext
@@ -25,11 +26,11 @@ export const RequestAPIProvider = ({ children }: IRequestAPIProvider) => {
   });
 
   const handleRequest = async ({
-    axiosAPI,
+    endpoint,
     data,
   }: IHandleRequestParams): Promise<void> => {
-    await axiosAPI
-      .post("", data)
+    await api
+      .post(endpoint, data)
       .then((res) => {
         setCalculatedData(res.data);
       })

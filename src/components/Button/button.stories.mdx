@@ -1,0 +1,123 @@
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { Button } from "./";
+
+<Meta title="Componentes/Button" component={Button} />
+
+# Button
+
+<p>
+  O componente de botão é bastante personalizável tanto de forma inline passand
+  as suas props quanto sendo reestilizado com o styled-components.
+</p>
+<p>Aqui abordaremos a estilização através de props.</p>
+
+<Canvas>
+  <Story
+    name="Button"
+    args={{
+      ...Button.defaultProps,
+      borderRadius: "0.5rem",
+      text: "text",
+      padding: "0.2rem 1rem",
+    }}
+  >
+    {(args) => <Button {...args} />}
+  </Story>
+</Canvas>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+
+## Atributos:
+
+<ArgsTable of={Button} />
+
+<br />
+<br />
+
+### Botão Padrão
+
+<p>
+  O botão padrão da aplicação pode ser encntrado na Main Page, no campo de
+  botões de erros.
+</p>
+
+<p>
+  Tendo sido feito reestilizado, não houve a necessidade de passar os atributos
+  de forma inline para ele, entretanto essa seria a confiuração para a base do
+  botão:
+</p>
+
+<Canvas>
+  <Story
+    name="Default Button"
+    args={{
+      ...Button.defaultProps,
+      borderRadius: "0.8rem",
+      padding: "0.5rem 1rem",
+      text: "Timeout",
+    }}
+  >
+    {(args) => <Button {...args} />}
+  </Story>
+</Canvas>
+
+<br />
+<br />
+
+### Botão da página de boas vindas
+
+<p>
+  É o primeiro botão da aplicação e é bastante interessante pois tem uma
+  estilização única e diferente
+</p>
+
+<p>
+  Também foi reestilizado na aplicação de modo que aqui vamos usar os atributos
+  para se chegar ao mesmo resultado.
+</p>
+
+<Canvas>
+  <Story
+    name="Welcome Button"
+    args={{
+      ...Button.defaultProps,
+      borderRadius: "4rem 4rem 0 0",
+      width: "15rem",
+      padding: "0.5rem",
+      text: "Vamos lá",
+    }}
+  >
+    {(args) => <Button {...args} />}
+  </Story>
+</Canvas>
+
+<br />
+<br />
+
+### Botão de cálculo
+
+<p>
+  Outro botão encontrado na Main Page, mas dessa vez, dentro do componente Form
+  send o botão de submissão do formulário
+</p>
+
+<p>Vejamos como ele seria posto em prática com os atributos</p>
+
+<Canvas>
+  <Story
+    name="Calculate Button"
+    args={{
+      ...Button.defaultProps,
+      borderRadius: "0.8rem",
+      padding: "0.5rem",
+      text: "Calcular",
+      width: "18rem",
+    }}
+  >
+    {(args) => <Button {...args} />}
+  </Story>
+</Canvas>

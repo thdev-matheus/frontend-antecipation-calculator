@@ -1,0 +1,26 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Utilitários/Preparando os dados para a requisição" />
+
+# Preparando os dados para serem enviados
+
+<p>
+  Este utilitário se faz necessário porque o array "days" pode estar vazio e
+  enviando dessa forma, a api vai retornar um erro do tipo 400
+</p>
+<p>
+  Para sanar esse pequeno problema, essas linhas recebem os valores vindo dos
+  inputs e o array "days" e faz as verificações necessárias, retornando o objeto
+  perfeito e pronto para ser enviado para a api.
+</p>
+
+```typescript
+// src/utils/prepareDataForRequest.ts
+import { FieldValues } from "react-hook-form";
+import { convertRealToCents } from "./convert";
+
+export const prepareDataForRequest = (data: FieldValues, days: string[]) => {
+  data.amount = convertRealToCents(data.amount);
+  return days.length > 0 ? { ...data, days } : data;
+};
+```

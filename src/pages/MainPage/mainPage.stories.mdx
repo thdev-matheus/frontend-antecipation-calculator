@@ -1,0 +1,94 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Pages/Main Page" />
+
+# Main Page
+
+Esta é a página principal da aplicação e trás com ela, na parte lógica os dados necessários para disparar os gatilhos que vão trazer alguns erros.
+
+vale lembrar que é uma aplicação a nível educacional então foi deixado o mais explícito possível todas as rotas e soluções.
+
+Vejamos o layout e o código:
+
+<br />
+
+<img src="https://i.ibb.co/ChQXJfr/main1.png" />
+<img src="https://i.ibb.co/WPKXkdD/main2.png" />
+
+<br />
+
+```typescript
+import { Result } from "../../components/Result";
+import { Form } from "../../components/Form";
+import { Header } from "../../components/Header";
+import { BoxErrorButtons, Container, Footer } from "./styles";
+import { Button } from "../../components/Button";
+import { useRequestAPI } from "../../contexts/RequestAPI";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+
+export const Main = () => {
+  // src/pages/MainPage/index.tsx
+
+  const navigate = useNavigate();
+  const { handleRequest, setCalculatedData } = useRequestAPI();
+
+  const handleNavigate = (path: string) => navigate(path);
+
+  // função que será chamada para os erros. Prceba que ela contém os dados mockados.
+  const request = async (endpoint: string, path: string) => {
+    const data = {
+      amount: 10000,
+      installments: 3,
+      mdr: 3,
+    };
+
+    await handleRequest({ endpoint, data });
+    handleNavigate(path);
+  };
+
+  // um useEffect que será executado na montagem somente para mostrar os dados zerados na tela ao iniciar a aplicação
+  useEffect(() => {
+    const data = {
+      1: 1,
+      15: 1,
+      30: 1,
+      90: 1,
+    };
+    setCalculatedData(data);
+  }, [setCalculatedData]);
+
+  return (
+    <Container>
+      <Header />
+      <h1>Calculadora</h1>
+      <section>
+        <Form />
+        <Result />
+      </section>
+      <Footer>
+        <h3>Botões de erros</h3>
+        <BoxErrorButtons>
+          // botões "gatilhos" que irão foçar estados de erro
+          <Button
+            text="Timeout"
+            onClick={() => request("?timeout", "/error")}
+          />
+          <Button
+            text="Delay"
+            onClick={() => request("?delay=5500", "/error")}
+          />
+          <Button
+            text="I. S. Error"
+            onClick={() => request("?internalError", "/error")}
+          />
+          <Button
+            text="Not fount"
+            onClick={() => handleNavigate("/rota-que-nao-existe")}
+          />
+        </BoxErrorButtons>
+      </Footer>
+    </Container>
+  );
+};
+```
