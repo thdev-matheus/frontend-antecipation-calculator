@@ -1,0 +1,76 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Pages/Error Page" />
+
+# Error Page
+
+Esta página faz uma verificação do que está sendo retornado da api e caso seja algum estado de erro, ela entenderá o erro que foi transmitido e exibirá a mensagem para o usuário.
+
+Vejamos o layout e o código:
+
+<br />
+
+<img src="https://i.ibb.co/5sZq74M/genericerror.png" />
+<img src="https://i.ibb.co/jJJQvJ6/iserror.png" />
+<img src="https://i.ibb.co/LY4wv7j/timeouterror.png" />
+
+<br />
+
+```typescript
+// src/pages/ErrorPage
+
+import { useRequestAPI } from "../../contexts/RequestAPI";
+import { Container } from "./styles";
+import { Header } from "../../components/Header";
+import { useNavigate } from "react-router-dom";
+
+export const Error = () => {
+  // hook de navegação
+  const navigate = useNavigate();
+
+  // pegando os dads recebidos da api
+  const { calculatedData } = useRequestAPI();
+
+  // definindo o statuscode atraés da mensagem vinda do backend
+  const statusCode =
+    calculatedData.message === "Request failed with status code 408" ||
+    calculatedData.message === "timeout of 5000ms exceeded"
+      ? 408
+      : calculatedData.message === "Request failed with status code 500"
+      ? 500
+      : null;
+
+  // definindo os tetos a serem exibido de acordo com o statuscode acima
+  const texts = {
+    408: "Parece que tá demorando pra responder aqui, tente de novo depois",
+    500: "Vixe, deu problema no servidor. ",
+    null: "Oxe! Teve um problema aqui. Mas a gente já tá resolvendo.",
+  };
+  return (
+    <Container>
+      <Header />
+
+      <img
+        src={
+          statusCode === 408
+            ? "https://i.ibb.co/XCrGGgs/504-Error-Gateway-Timeout-bro.png"
+            : statusCode === 500
+            ? "https://i.ibb.co/k3WqnnP/500-Internal-Server-Error-cuate.png"
+            : "https://i.ibb.co/wcjMkjK/404-error-with-portals-rafiki.png"
+        }
+        alt="error_image"
+      />
+      <h2>{texts[`${statusCode}`]}</h2>
+      <div>
+        <span>
+          Enquanto eu arrumo isso, vosmicê pode ir no meu
+          <a href="https://www.linkedin.com/in/th-matheus/"> Linkedin</a> e conectar-se
+          comigo. que tal?
+        </span>
+        <span>ou vosmicê pode</span>
+        <p onClick={() => navigate("/main")}>voltar</p>
+      </div>
+    </Container>
+  );
+};
+```
